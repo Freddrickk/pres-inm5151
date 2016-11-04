@@ -5,9 +5,6 @@ class: center, middle
 ##### Frédéric Vachon, Martin Grogan et Benjamin Rosa
 
 ---
-# TODO : Plan de la présentation
-
----
 
 # Fuzzing as a service (FAAS)
 
@@ -64,43 +61,45 @@ class: center, middle
 * Préparer l’environnement de développement	
 	* Créer un conteneur avec React JS et un serveur web :	6 heures	
 	* Créer un conteneur avec Django pour l’API REST :	4 heures	
-	* Créer un conteneur pour contenir la base de donnée :	4 heures	
-	* Assembler les conteneurs en utilisant Docker-Compose :	1 heures	
-	* Écrire la documentation :	1 heures	
+	* Créer un conteneur pour contenir la base de donnée :	4 heures
+	* Assembler les conteneurs en utilisant Docker-Compose :	1 heure
 
-* Se connecter et se déconnecter sur son compte utilisateur	
-	* Front-end : implémenter l’écran d’interface permettant de se connecter à l’application :	5 heures	
-	* UX : créer le design de l’écran de connection :	1 heures	
-	* Back-end : créer le service d’authentification :	8 heures	
-	* Écrire la documentation :	1 heures	
+* Créer un compte utilisateur	
+	* UX: créer le design de l’écran de création de compte :	1 heure
+	* Front-end : implémenter l’écran de création de compte :	4 heures	
+	* Back-end : créer le service de création de compte, créer une table utilisateur dans la base de donnée :	5 heures	
+
 
 ---
 
 # Sprint backlog (suite)
 
-* Créer un compte utilisateur	
-	* UX: créer le design de l’écran de création de compte :	1 heures	
-	* Front-end : implémenter l’écran de création de compte :	4 heures	
-	* Back-end : créer le service de création de compte, créer une table utilisateur dans la base de donnée :	5 heures	
-	* Écrire la documentation :	1 heures	
+* Se connecter et se déconnecter sur son compte utilisateur	
+	* Front-end : implémenter l’écran d’interface permettant de se connecter à l’application :	5 heures	
+	* UX : créer le design de l’écran de connection :	1 heure
+	* Back-end : créer le service d’authentification :	8 heures	
 
 * Créer une tâche de fuzzing simplifié	
-	* UX: créer le design de l’écran création de tâche de fuzzing :	1 heures	
-	* Front-end : implémenter l’écran de création de tâche :	5 heures	
+	* UX: créer le design de l’écran création de tâche de fuzzing :	1 heure
+	* Front-end : implémenter l’écran de création de tâche :	5 heures
 	* Back-end : créer le service de création de tâche, création d’une table tache dans la base de donnée :	8 heures	
-	* Écrire la documentation :	1 heures	
 
 ---
-
-# Créer une tâche simplifiée
+## Use case: Créer une tâche simplifiée
 
 
 1. L’utilisateur se trouve sur l’écran d’accueil de l’application et clique sur le bouton Task.
+
 2. Le système retourne un écran contenant la liste des Task
+
 3. L’utilisateur appuie sur le bouton Add task
+
 4. Le système retourne l’écran de création de tâche
+
 5. L’utilisateur entre les informations (nom, description) et téléverse un fichier binaire puis appuie sur le bouton ok
+
 6. Le serveur valide les champs et crée une nouvelle tâche dans la base de donnée puis renvoie un code de succès
+
 7. Le système affiche l’écran d’accueil
 
 ---
@@ -111,7 +110,7 @@ class: center, middle
 
 ---
 
-# Authentification
+# Use case: Authentification
 
 1. le Visiteur remplit les champs suivants et clique sur le bouton : 
  - Nom utilisateur
@@ -124,29 +123,64 @@ class: center, middle
 
 ---
 
-# Diagramme de classe d'une tâche
+# Contrats simplifiés
+
+* Authentification d'un utilisateur
+	* POST /api/auth/login (username: String, email: String, password: String)
+	* Retourne le code 200 et un jeton (String)
+	* Préconditions: Username et password requis
+	* Postcondition: Un token est créé dans la base de données
+
+* Créer une tâche de fuzzing
+	* POST /api/task (name: String, owner: String, description: String, b64_binary_file: String)
+	* Retourne code 201 et l'objet créé
+	* Précondition: owner et b64_binary_file requis
+	* Postcondition: Nouvelle tâche créé dans la base de données
+
+---
+
+# Diagramme de classe
 
 ![](./img/task.png)
 
 ---
 
-# TODO : Revue de sprint
+### Revue de sprint
 
+#### Revue technique
+
+\+ Tâches accomplies dans les temps prévus
+
+\- Complexité de l'architecture système : Temps considérable de mise en place
+
+\- Tergiversation sur les choix technologiques
+
+
+#### Revue gestion
+
+\+ Bon transfert de connaissance entre les membres de l'équipe
+
+\- Commencement tardif du travail
+
+#### Améliorations prévues
+
+* Commencer le travail dès le jour 1 du sprint
+* Prévoir des heures pour se former sur les technologies
 ---
 
-# Plan du prochain sprint
+### Plan du prochain sprint
 
-1. En tant qu’utilisateur je peux démarrer une tâche de fuzzing en définissant une grammaire de base pour injecter des données dans un programme afin de pouvoir le tester à travers une série d’attaque de type brute force.
+1. Démarrer une tâche de fuzzing en définissant une grammaire de base pour générer les données à injecter
+	- 30 heures
 
-2. En tant qu’utilisateur je peux fuzzer un programme via l’entrée standard afin de pouvoir tester et détecter d’autres failles potentielles de mon programme.
+2. Fuzzer un programme via l’entrée standard afin de pouvoir tester et détecter d’autres failles potentielles de mon programme.
+	- 10 heures
 
-3. En tant qu’utilisateur je peux consulter la liste des rapports de crash afin de pouvoir avoir rapidement un point de vue global sur les rapports émis par les tâches de fuzzing.
+3. Consulter la liste des rapports de crash
+	- 20 heures
 
-4. En tant qu’utilisateur je peux consulter la liste des tâches de fuzzing afin de pouvoir avoir rapidement un point de vue global sur les tâches créées ainsi que leurs statuts.
-
----
-
-# TODO : Sprint backlog initial
+4. Consulter la liste des tâches de fuzzing
+	- 10 heures
 
 ---
 
