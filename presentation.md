@@ -28,7 +28,7 @@ class: center, middle
 
 * Consulter les rapports de crash
 
-* Fournir des fichiers d’entrée pour un programme donné
+* Définir une grammaire balisant les données à générer
 
 
 ---
@@ -38,8 +38,8 @@ class: center, middle
 
 * Sprint 1
 	* Préparer l’environnement de développement
-	* L’utilisateur peut se connecter et se déconnecter de l’application
 	* Le visiteur peut se créer un compte utilisateur 
+	* L’utilisateur peut se connecter et se déconnecter de l’application
 	* L’utilisateur peut créer une tâche de fuzzing simplifiée ne contenant que le programme à tester
 
 * Sprint 2
@@ -82,7 +82,7 @@ class: center, middle
 * Créer une tâche de fuzzing simplifié	
 	* UX: créer le design de l’écran création de tâche de fuzzing :	1 heure
 	* Front-end : implémenter l’écran de création de tâche :	5 heures
-	* Back-end : créer le service de création de tâche, création d’une table tache dans la base de donnée :	8 heures	
+	* Back-end : créer le service de création de tâche, création d’une table tâche dans la base de donnée :	8 heures	
 
 ---
 ## Use case: Créer une tâche simplifiée
@@ -135,7 +135,7 @@ class: center, middle
 	* POST /api/task (name: String, owner: String, description: String, b64_binary_file: String)
 	* Retourne code 201 et l'objet créé
 	* Précondition: owner et b64_binary_file requis
-	* Postcondition: Nouvelle tâche créé dans la base de données
+	* Postcondition: Nouvelle tâche créée dans la base de données
 
 ---
 
@@ -184,4 +184,5 @@ class: center, middle
 
 ---
 
+class: center, middle
 # Démo
