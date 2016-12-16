@@ -57,21 +57,31 @@ class: center, middle
 
 # Contenu du sprint actuel
 
-* Démarrer une tâche de fuzzing en définissant une grammaire de base pour injecter des données dans un programme.
+* Consulter les détails d’un crash
 
+* Consulter les détails d’une tâche de fuzzing
 
-* Fuzzer un programme via l’entrée standard.
-
-
-* Consulter la liste des rapports de crash.
-
-
-* Consulter la liste des tâches de fuzzing.
+* Forcer l’arrêt d’une tâche de fuzzing
 
 ---
-class: center, middle
 
-# Démo
+# Diagramme de classe
+
+```
+
+
+
+
+
+
+
+
+
+
+
+```
+![](./img/diag_classe_1.png)
+
 ---
 
 # Diagramme de classe
@@ -91,44 +101,95 @@ class: center, middle
 ```
 ![](./img/diag_classe_2.png)
 
+---
+
+# Diagramme de classe
+
+```
+
+
+
+
+
+
+
+
+
+
+
+```
+![](./img/diag_classe_3.png)
+
 
 ---
+
 class: center, middle
 
-# Le code
+# Démo
 ---
 
 ### Revue de sprint
 
 #### Revue technique
 
-\+ Tâches accomplies dans les temps prévus
-
-\- Framework peu documenté rend la tâche plus difficile
+\+ Tous les cas d'utilisation du sprint actuel ont été complétés
 
 \- Contrainte temporelle fait qu'on a dû utiliser un design architectural moins robuste
+
+\- Difficulté à débogguer du code transpilé
 
 
 #### Revue gestion
 
-\+ Bon transfert de connaissance entre les membres de l'équipe
+\+ Début du sprint dès le premier jour (no joke!)
 
-\- Commencement tardif du travail
+\+ Bonne communication au sein de l'équipe
 
-#### Améliorations prévues
-
-* Commencer le travail dès le jour 1 du sprint
 
 ---
 
-### Plan du prochain sprint
+class: center, middle
+
+# Revue de projet
+---
+
+# Revue technique
+
+\+ Le product backlog a été implémenté au complet
+
+\+ Bon choix des technologies (ReactJS/Redux et Django)
+
+\+ Excellent choix de Docker pour notre environnement de développement (Chaque membre développait sur une plateforme différente (Windows, Linux, MacOS))
+
+\- Le framework du fuzzer (Kitty) est limité en terme de documentation et la communauté est restreinte
+
+\- Tergiversation aux niveaux du choix technologique en début de projet
 
 
-1. En tant qu’utilisateur je peux consulter les détails d’un crash afin de connaître les causes exactes qui ont conduits le programme à être interrompu.
-	- 16 heures
+---
 
-2. En tant qu’utilisateur je peux consulter les détails d’une tâche de fuzzing afin de connaître le statut de chacune d’entre elles.
-	- 16 heures
+# Revue de gestion
 
-3. En tant qu’utilisateur je peux forcer l’arrêt d’une tâche de fuzzing afin de libérer des ressources pour d’autres tâches de fuzzing.
-	- 9 heures
+\+ Bon investissement de tous les membres de l'équipe
+
+\+ Bonne disponibilité des membres, malgré les conflits d'horaire
+
+\+ Bon choix des outils communicationnels pour palier aux conflits d'horaires
+
+\+ Bon transfert des connaissances entre les membres de l'équipe
+
+## Amélioration à prévoir
+
+Plus de rencontres physiques auraient accéléré l'échange d'information
+
+---
+
+# Bénéfices apportés par le développement Agile
+
+* Revue de sprints ont permis à l'équipe de s'améliorer tout au long du projet
+
+* Les sprints ont permis de nous obliger à mieux répartir la tâche de travail tout au long de la session
+
+* L'Agilité nous a permis de définir notre vélocité ce qui nous permet d'adapter la charge de travail d'itération en itération
+
+
